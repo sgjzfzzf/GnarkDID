@@ -26,7 +26,7 @@ type Circuit struct {
 	Age       frontend.Variable
 	Income    frontend.Variable
 	Name      frontend.Variable
-	Signature eddsa.Signature `gnark:"signature,public"`
+	Signature eddsa.Signature
 	PublicKey eddsa.PublicKey `gnark:"pubKey,public"`
 }
 
