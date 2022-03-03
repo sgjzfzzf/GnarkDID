@@ -23,9 +23,9 @@ const ALLOWED_MININCOME uint = 5000
 
 // The public witness needs labels, while private witness doesn't.
 type Circuit struct {
-	Age       frontend.Variable
-	Income    frontend.Variable
-	Name      frontend.Variable
+	Age       frontend.Variable `gnark:"pubKey,public"`
+	Income    frontend.Variable `gnark:"pubKey,public"`
+	Name      frontend.Variable `gnark:"pubKey,public"`
 	Signature eddsa.Signature
 	PublicKey eddsa.PublicKey `gnark:"pubKey,public"`
 }
