@@ -1,4 +1,4 @@
-module zk
+module GnarkDID
 
 go 1.17
 

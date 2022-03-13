@@ -1,4 +1,4 @@
-package zk
+package GnarkDID
 
 import (
 	"crypto/sha256"
