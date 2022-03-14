@@ -7,17 +7,17 @@ import (
 	"github.com/consensys/gnark/backend/groth16"
 )
 
-func SaveProof(proof groth16.Proof, proofName string) error {
+func SaveProof(proof groth16.Proof, proofName string) (groth16.Proof, error) {
 	file, err := os.Create(fmt.Sprintf("%s.proof", proofName))
 	if err != nil {
-		return err
+		return proof, err
 	}
 	defer file.Close()
 	_, err = proof.WriteTo(file)
 	if err != nil {
-		return err
+		return proof, err
 	}
-	return nil
+	return proof, nil
 }
 
 func ReadSavedProof(file *os.File) (groth16.Proof, error) {

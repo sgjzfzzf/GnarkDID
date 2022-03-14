@@ -32,16 +32,16 @@ func SaveKey(sk eddsa.PrivateKey, pk eddsa.PublicKey, keyname string) error {
 	return nil
 }
 
-func GenerateSaveKey(seed io.Reader, keyname string) error {
+func GenerateSaveKey(seed io.Reader, keyname string) (eddsa.PrivateKey, eddsa.PublicKey, error) {
 	sk, pk, err := GenerateKey(seed)
 	if err != nil {
-		return err
+		return sk, pk, err
 	}
 	err = SaveKey(sk, pk, keyname)
 	if err != nil {
-		return err
+		return sk, pk, err
 	}
-	return nil
+	return sk, pk, nil
 }
 
 func ReadSavedPrivateKey(file *os.File) (eddsa.PrivateKey, error) {
